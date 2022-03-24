@@ -26,28 +26,46 @@ MENU = {
 
 profit = 0
 resources = {
-    "water": 300,
+    "water": 0,
     "milk": 200,
     "coffee": 100,
 }
 
 
-choice = input("What would you like? (espresso/latte/cappuccino): ")
-if choice == "off":
-    quit()
-
-
 
 def report():
+
+    """ prints the report of the available resources present in the coffee machine"""
+    
     for key, value in resources.items():
         print(f"{key}: {value}")
-
+    # print(f"Money: {money}")
 
 
 def check_resources():
+    """
+    checks the resources dict whether the coffee machine has enough resources or not
+        based onn the user input
+    :return: returns a tuple with boolean value at index 0.
+    """
     for key in resources:
         if (MENU[choice]["ingredients"][key]) > resources[key]:
-            return(f"Sorry there is not enough {key}")
+            return False, (f"Sorry there is not enough {key}")
     else:
-        print("thanks")
-# if MENU[x][0] == r
+        return True,
+
+
+choice = None
+while choice != "off":
+    choice = input("What would you like? (espresso/latte/cappuccino): ")
+    if choice == "off":
+        quit()
+    elif choice == "report":
+        print(report())
+    else:
+        # print(check_resources())
+        if not check_resources()[0]:
+            print(check_resources()[1])
+            break
+        else:
+            print("ho")
