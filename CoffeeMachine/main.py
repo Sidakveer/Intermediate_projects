@@ -56,6 +56,14 @@ def check_resources():
 
 
 def insert_coins():
+    
+    """
+        uses profit variable from outer scope and asks the user to input the 
+        number of coins as payment
+        checks if added funds are sufficient or not and calls another function
+        make coffee if funds added are enough
+    """
+    
     global profit
     print("Please enter coins")
     quarters = int(input("How many quaters: "))
@@ -74,6 +82,11 @@ def insert_coins():
 
 
 def make_coffee():
+    
+    """
+        deducts the amount of resources used based on the type of coffee selected by 
+        the user
+    """
     for key in resources:
         resources[key] -= MENU[choice]["ingredients"][key]
     return f"Here is you {choice}. Enjoy!"
@@ -87,7 +100,6 @@ while choice != "off":
     elif choice == "report":
         print(report())
     else:
-        # print(check_resources())
         if not check_resources()[0]:
             print(check_resources()[1])
             continue
