@@ -26,7 +26,7 @@ MENU = {
 
 profit = 0
 resources = {
-    "water": 200,
+    "water": 300,
     "milk": 200,
     "coffee": 100,
 }
@@ -39,7 +39,7 @@ def report():
 
     for key, value in resources.items():
         print(f"{key}: {value}")
-    print(f"Money: {profit}")
+    return (f"Money: {profit}")
 
 
 def check_resources():
@@ -56,6 +56,7 @@ def check_resources():
 
 
 def insert_coins():
+    global profit
     print("Please enter coins")
     quarters = int(input("How many quaters: "))
     dimes = int(input("How many dimes: "))
@@ -69,9 +70,13 @@ def insert_coins():
         profit += cost1
         change = money_inserted - cost1
         print(f"Here is a ${round(change, 2)} dollars in change")
+        print(make_coffee())
 
 
-
+def make_coffee():
+    for key in resources:
+        resources[key] -= MENU[choice]["ingredients"][key]
+    return f"Here is you {choice}. Enjoy!"
 
 
 choice = None
@@ -85,9 +90,28 @@ while choice != "off":
         # print(check_resources())
         if not check_resources()[0]:
             print(check_resources()[1])
-            break
+            continue
         else:
             insert_coins()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
 
 
