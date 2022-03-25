@@ -36,7 +36,7 @@ resources = {
 def report():
 
     """ prints the report of the available resources present in the coffee machine"""
-    
+
     for key, value in resources.items():
         print(f"{key}: {value}")
     # print(f"Money: {money}")
@@ -55,6 +55,19 @@ def check_resources():
         return True,
 
 
+def insert_coins():
+    print("Please enter coins")
+    quarters = int(input("How many quaters: "))
+    dimes = int(input("How many dimes: "))
+    nickels = int(input("How many nickels: "))
+    pennies = int(input("How many pennies: "))
+    money_inserted = 0.25 * quarters + 0.10 * dimes + 0.05 * nickels + 0.01 * pennies
+    if money_inserted <= MENU[choice]["cost"]:
+        return "Sorry that's not enough money. Money refunded."
+    else:
+        pass
+
+
 choice = None
 while choice != "off":
     choice = input("What would you like? (espresso/latte/cappuccino): ")
@@ -69,3 +82,12 @@ while choice != "off":
             break
         else:
             print("ho")
+
+
+
+
+
+
+
+
+
