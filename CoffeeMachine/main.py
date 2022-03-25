@@ -26,7 +26,7 @@ MENU = {
 
 profit = 0
 resources = {
-    "water": 0,
+    "water": 200,
     "milk": 200,
     "coffee": 100,
 }
@@ -39,7 +39,7 @@ def report():
 
     for key, value in resources.items():
         print(f"{key}: {value}")
-    # print(f"Money: {money}")
+    print(f"Money: {profit}")
 
 
 def check_resources():
@@ -62,10 +62,16 @@ def insert_coins():
     nickels = int(input("How many nickels: "))
     pennies = int(input("How many pennies: "))
     money_inserted = 0.25 * quarters + 0.10 * dimes + 0.05 * nickels + 0.01 * pennies
-    if money_inserted <= MENU[choice]["cost"]:
-        return "Sorry that's not enough money. Money refunded."
-    else:
-        pass
+    cost1 = MENU[choice]["cost"]
+    if money_inserted < cost1:
+        print("Sorry that's not enough money. Money refunded.")
+    elif money_inserted >= cost1:
+        profit += cost1
+        change = money_inserted - cost1
+        print(f"Here is a ${round(change, 2)} dollars in change")
+
+
+
 
 
 choice = None
@@ -81,7 +87,8 @@ while choice != "off":
             print(check_resources()[1])
             break
         else:
-            print("ho")
+            insert_coins()
+            
 
 
 
