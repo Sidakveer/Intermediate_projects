@@ -105,3 +105,4 @@ while choice != "off":
             continue
         else:
             insert_coins()
+            
