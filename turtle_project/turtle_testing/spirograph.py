@@ -6,7 +6,6 @@ angles = (0, 90, 180, 270)
 turtle.colormode(255)
 tim = Turtle()
 tim.speed("fastest")
-current_heading = tim.heading()
 
 
 def random_color():
@@ -15,14 +14,17 @@ def random_color():
     b = random.randint(0, 255)
     return r, g, b
 
-for i in range(75):
-    tim.circle(100)
-    colour = tim.color(random_color())
-    current_heading += 5
-    tim.setheading(current_heading)
+
+def draw_spirograph(size_of_gap):
+    for i in range(360 // size_of_gap):
+        tim.circle(100)
+        colour = tim.color(random_color())
+        # size_of_gap += 5
+        tim.setheading(tim.heading() + size_of_gap)
+
+
+draw_spirograph(5)
 
 
 screen = Screen()
 screen.exitonclick()
-
-
