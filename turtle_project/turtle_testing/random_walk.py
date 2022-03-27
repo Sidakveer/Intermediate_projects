@@ -4,7 +4,7 @@ from turtle import *
 angles = (0, 90, 180, 270)
 
 tim = Turtle()
-tim.speed(100)
+tim.speed("fastest")
 tim.hideturtle()
 tim.pensize(10)
 
