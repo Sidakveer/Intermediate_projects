@@ -30,6 +30,6 @@ for x in range(1, len(color_list) + 1):
         tim.dot(20, random.choice(color_list))
         tim.forward(50)
 
-
+hello
 
 turtle.mainloop()
