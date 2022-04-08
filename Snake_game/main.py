@@ -48,4 +48,3 @@ while game_on:
 
 
 screen.mainloop()
-

@@ -27,10 +27,12 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.update(0)
 
+    def game_over(self):
+        self.color("white")
+        self.goto(x=0, y=0)
+        self.write("GAME OVER", align="center" , font=(f"arial =", 24, "bold"))
+
     def update(self, n):
         self.clear()
         self.color("white")
-        self.write(f"Score =  {n}",align="center" , font=(f"arial =", 10, "bold"))
-
-
-
+        self.write(f"Score =  {n}",align="center" , font=(f"arial =", 18, "bold"))
