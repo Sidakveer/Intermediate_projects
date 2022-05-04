@@ -1,4 +1,4 @@
-# Intermediate Python3 Projects
+# Basic Python3 Projects
 In this repository we have some projects that I have built using concepts of **object oriented Programming**, **turtle in-built python module** and more.
 Below we mention the various projects in this repository.
 ## Coffee_Machine
